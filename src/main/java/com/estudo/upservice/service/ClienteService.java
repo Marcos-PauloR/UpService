@@ -41,12 +41,6 @@ public class ClienteService {
     private BCryptPasswordEncoder pe;
 
 
-    @Value("${img.prefix.client.profile}")
-    private String prefix;
-
-    @Value("${img.profile.size}")
-    private int size;
-
     public Cliente find(Integer id) {
         UserSS user = UserService.authenticated();
         if(user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())){

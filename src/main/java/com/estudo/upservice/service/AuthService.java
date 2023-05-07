@@ -19,8 +19,6 @@ public class AuthService {
     @Autowired
     private BCryptPasswordEncoder pe;
 
-    @Autowired
-    private EmailService emailService;
 
     private Random rand = new Random();
 
@@ -33,7 +31,6 @@ public class AuthService {
         cliente.setSenha(pe.encode(newPass));
 
         repo.save(cliente);
-        emailService.sendNewPasswordEmail(cliente, newPass);
     }
 
     private String newPassword() {
